@@ -4,6 +4,11 @@ import Chart from 'chart.js';
 import App from './App.vue';
 import HelloWorld from './components/HelloWorld.vue';
 
+import VeCharts from 've-charts'
+import 've-charts/lib/ve-charts.min.css'
+
+Vue.use(VeCharts)
+
 Vue.config.productionTip = false;
 Vue.component('hello-world', HelloWorld);
 Vue.use(VueChartkick, { adapter: Chart });

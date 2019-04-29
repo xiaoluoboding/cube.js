@@ -5,6 +5,17 @@
         <chart-renderer v-if="!loading" :result-set="resultSet" />
       </template>
     </query-builder>
+    <br />
+    <query-builder :cubejs-api="cubejsApi" :query="query">
+      <template v-slot="{ dimensions, measures, resultSet, loading }">
+        <ve-chart
+          v-if="!loading"
+          :dimensions="dimensions"
+          :measures="measures"
+          :result-set="resultSet"
+        />
+      </template>
+    </query-builder>
   </div>
 </template>
 
@@ -12,12 +23,14 @@
 import cubejs from '@cubejs-client/core';
 import { QueryBuilder } from '@cubejs-client/vue';
 import ChartRenderer from './ChartRenderer.vue';
+import VeChart from './VeChart.vue';
 
 export default {
   name: 'HelloWorld',
   components: {
     QueryBuilder,
     ChartRenderer,
+    VeChart
   },
   props: {
     msg: String,
